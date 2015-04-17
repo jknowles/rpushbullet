@@ -87,10 +87,10 @@
 
 .getCurl <- function(dir=NULL) {
     curl <- .pkgenv$curl
-    if (curl == "" & missing(dir))
+    if (curl == "" & is.null(dir))
         stop(paste("No curl binary registered. ",
                    "Install curl, and restart R and reload package"), call.=FALSE)
-        else if(curl == "" & !missing(dir)){
+        else if(curl == "" & !is.null(dir)){
            curl <- dir
         }
     curl
