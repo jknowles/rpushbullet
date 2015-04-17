@@ -90,7 +90,7 @@
     if (curl == "" & is.missing(dir))
         stop(paste("No curl binary registered. ",
                    "Install curl, and restart R and reload package"), call.=FALSE)
-        else if(curl = "" & !is.missing(dir)){
+        else if(curl == "" & !is.missing(dir)){
            curl <- dir
         }
     curl
