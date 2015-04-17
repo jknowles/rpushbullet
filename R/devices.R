@@ -33,7 +33,7 @@
 ##' returned as a \code{pbDevices} object with appropriate
 ##' \code{print} and \code{summary} methods.
 ##' @author Dirk Eddelbuettel
-pbGetDevices <- function(apikey=.getKey()) {
+pbGetDevices <- function(apikey=.getKey(), ...) {
     UseMethod("pbGetDevices")
 }
 
