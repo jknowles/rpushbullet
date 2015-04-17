@@ -26,6 +26,7 @@
 ##' @title Get registered Pushbullet devices
 ##' @param apikey The API key used to access the service. It can be
 ##' supplied as an argument here, or via the file
+##' @param ... optional argument to .getCurl()
 ##' \code{~/.rpushbullet.json} which is read at package
 ##' initialization.
 ##' @return The resulting JSON record is converted to a list and
@@ -37,9 +38,9 @@ pbGetDevices <- function(apikey=.getKey()) {
 }
 
 ##' @rdname pbGetDevices
-pbGetDevices.default <- function(apikey=.getKey()) {
+pbGetDevices.default <- function(apikey=.getKey(), ...) {
     txt <- sprintf("%s -s %s -u %s:",
-                   .getCurl(), "https://api.pushbullet.com/v2/devices", apikey)
+                   .getCurl(...), "https://api.pushbullet.com/v2/devices", apikey)
     jsonres <- system(txt, intern=TRUE)
     res <- fromJSON(jsonres)
     class(res) <- c("pbDevices", "list")
